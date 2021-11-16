@@ -98,7 +98,7 @@ int main(void)
     if (sw1_check()) {
       led_green_toggle();
       led_red_toggle();
-      delay();
+      while (sw1_check()); // Improvement by Miguel Blanco Godón
     }
   }
 
