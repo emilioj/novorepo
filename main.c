@@ -5,8 +5,8 @@
 // LED_RED = PTE29 (pin 26)
 
 // SWICHES
-// LEFT (SW1) = PTC3 (pin 73)
-// RIGHT (SW2) = PTC12 (pin 88)
+// RIGHT (SW1) = PTC3 (pin 73)
+// LEFT (SW2) = PTC12 (pin 88)
 
 void delay(void)
 {
@@ -15,7 +15,7 @@ void delay(void)
   for (i = 0; i < 1000000; i++);
 }
 
-// LEFT_SWITCH (SW1) = PTC3
+// RIGHT_SWITCH (SW1) = PTC3
 void sw1_ini()
 {
   SIM->COPC = 0;
@@ -24,7 +24,7 @@ void sw1_ini()
   GPIOC->PDDR &= ~(1 << 3);
 }
 
-// RIGHT_SWITCH (SW2) = PTC12
+// LEFT_SWITCH (SW2) = PTC12
 void sw2_ini()
 {
   SIM->COPC = 0;
@@ -44,7 +44,7 @@ int sw2_check()
 }
 
 // LED_GREEN = PTD5
-void led_green_init()
+void led_green_ini()
 {
   SIM->COPC = 0;
   SIM->SCGC5 |= SIM_SCGC5_PORTD_MASK;
@@ -59,7 +59,7 @@ void led_green_toggle()
 }
 
 // LED_RED = PTE29
-void led_red_init()
+void led_red_ini()
 {
   SIM->COPC = 0;
   SIM->SCGC5 |= SIM_SCGC5_PORTE_MASK;
@@ -75,7 +75,7 @@ void led_red_toggle(void)
 
 // LED_RED = PTE29
 // LED_GREEN = PTD5
-void leds_init()
+void leds_ini()
 {
   SIM->COPC = 0;
   SIM->SCGC5 |= SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTE_MASK;
@@ -90,7 +90,7 @@ void leds_init()
 
 int main(void)
 {
-  leds_init();
+  leds_ini();
   sw1_ini();
 
   led_green_toggle();
